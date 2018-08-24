@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int check_authentication(char *password) {
- int auth_flag = 0;
- char password_buffer[10];
- strcpy(password_buffer, password);
- if(strcmp(password_buffer, "cibb2pwn") == 0)
- auth_flag = 1;
- return auth_flag;
+
+int f(char * s) {
+	char buf[20]; //buf not set to use SIZE macro
+
+	strncpy(buf, s, SIZE); //wrong: copy may exceed size of buf
+
+	for (int i = 0; i < SIZE; i++) { //wrong: upper limit that is higher than array size
+		cout << array[i];
+	}
 }
 /*
 */
@@ -17,11 +19,5 @@ system("color a");
  printf("Usage: %s <password>\n", argv[0]);
  exit(0);
  }
- if(check_authentication(argv[1])) {
- printf("\n-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
- printf(" [+] You're logged in.\n");
- printf("-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
- } else {
- printf("\nAccess Denied.\n");
- }
+ int a = f(argv[1]);
 }
