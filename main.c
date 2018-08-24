@@ -10,7 +10,7 @@ int f(char * s) {
 	strncpy(buf, s, SIZE); //wrong: copy may exceed size of buf
 
 	for (int i = 0; i < SIZE; i++) { //wrong: upper limit that is higher than array size
-		printf("%c", array[i]);
+		printf("%c", buf[i]);
 	}
 }
 /*
